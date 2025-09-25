@@ -8,14 +8,24 @@ function Register() {
   const [role, setRole] = useState('user');
   const [message, setMessage] = useState('');
 
-  const handleRegister = async () => {
-    try {
-      const res = await api.post('accounts/register/', { username, email, password, role });
-      setMessage('Registration successful!');
-    } catch (err) {
-      setMessage(err.response.data.detail || 'Error registering');
+const handleRegister = async () => {
+  try {
+    const res = await api.post('accounts/register/', { 
+      username, 
+      email, 
+      password, 
+      role 
+    });
+    setMessage('Registration successful!');
+  } catch (err) {
+    if (err.response && err.response.data) {
+      setMessage(JSON.stringify(err.response.data));
+    } else {
+      setMessage('Error registering');
     }
-  };
+  }
+};
+
 
   return (
     <div>
