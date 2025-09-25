@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Register from './components/Register';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
+import "./App.css";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
@@ -16,7 +17,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className='app-container'>
       <h1>Internship Project</h1>
       {isLoggedIn ? (
         <>

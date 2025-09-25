@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import api from '../services/api';
+import "./Login.css";
 
 function Login({ onLogin }) {
   const [username, setUsername] = useState('');
@@ -10,17 +11,19 @@ function Login({ onLogin }) {
     try {
       const res = await api.post('accounts/login/', { username, password });
       localStorage.setItem('access_token', res.data.access);
-      onLogin();  // e.g., navigate to dashboard
+      onLogin();  
     } catch (err) {
       setMessage('Invalid credentials');
     }
   };
 
   return (
-    <div>
+    <div className='login-container'>
       <h2>Login</h2>
-      <input placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} />
-      <input placeholder="Password" type="password" value={password} onChange={e => setPassword(e.target.value)} />
+      <label htmlFor='username'>Username  </label>
+      <input placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} /><br />
+      <label htmlFor='Password'>Password  </label>
+      <input placeholder="Password" type="password" value={password} onChange={e => setPassword(e.target.value)} /><br />
       <button onClick={handleLogin}>Login</button>
       <p>{message}</p>
     </div>

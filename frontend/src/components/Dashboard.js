@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import api from '../services/api';
+import './Dashboard.css';
 
 function Dashboard() {
   const [tasks, setTasks] = useState([]);
@@ -60,7 +61,7 @@ function Dashboard() {
   };
 
   return (
-    <div>
+    <div className='dashboard-container'>
       <h2>Dashboard</h2>
       <p>{message}</p>
 
@@ -69,27 +70,27 @@ function Dashboard() {
           placeholder="Task title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-        />
+        /><br />
         <input
           placeholder="Task description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-        />
+        /><br />
         <button onClick={handleSave}>
           {editingTask ? 'Update Task' : 'Add Task'}
         </button>
       </div>
 
       <h3>My Tasks</h3>
-      <ul>
+  
         {tasks.map((task) => (
-          <li key={task.id}>
+          <ul key={task.id}>
             <strong>{task.title}</strong>: {task.description}{' '}
             <button onClick={() => handleEdit(task)}>Edit</button>
             <button onClick={() => handleDelete(task.id)}>Delete</button>
-          </li>
+          </ul>
         ))}
-      </ul>
+   
     </div>
   );
 }

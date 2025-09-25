@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import api from '../services/api';
+import "./Register.css";
 
 function Register() {
   const [username, setUsername] = useState('');
@@ -28,15 +29,20 @@ const handleRegister = async () => {
 
 
   return (
-    <div>
+    <div className='reg-container'>
       <h2>Register</h2>
-      <input placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} />
-      <input placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
-      <input placeholder="Password" type="password" value={password} onChange={e => setPassword(e.target.value)} />
+      <label htmlFor='username'>Username  </label>
+      <input placeholder="Enter Username" value={username} onChange={e => setUsername(e.target.value)} /><br />
+      <label htmlFor='email'>Email </label>
+      <input placeholder="Enter Email" value={email} onChange={e => setEmail(e.target.value)} /><br />
+      <label htmlFor='password'>Password </label>
+      <input placeholder="Enter Password" type="password" value={password} onChange={e => setPassword(e.target.value)} /><br />
+      <label htmlFor='role'>Role </label>
       <select value={role} onChange={e => setRole(e.target.value)}>
         <option value="user">User</option>
         <option value="admin">Admin</option>
       </select>
+      <br /><br/>
       <button onClick={handleRegister}>Register</button>
       <p>{message}</p>
     </div>
