@@ -29,5 +29,9 @@ React frontend integration
 
 # Installation and Setup
 
+## clone repository
+
+git clone https://github.com/your-username/project-name.git
+cd project-name
 
 
