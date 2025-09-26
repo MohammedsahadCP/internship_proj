@@ -30,8 +30,15 @@ React frontend integration
 # Installation and Setup
 
 ## clone repository
+```bash 
+git clone https://github.com/MohammedsahadCP/internship_proj.git
+cd internship_proj
+``` 
 
-`git clone https://github.com/your-username/project-name.git`
-`cd project-name`
+
+## backend setup
+```bash
+python -m venv venv
+venv\Scripts\activate # for windows
+source venv/bin/activate   # Mac/Linux
 ```
-
