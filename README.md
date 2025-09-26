@@ -31,7 +31,7 @@ React frontend integration
 
 ## clone repository
 
-git clone https://github.com/your-username/project-name.git
-cd project-name
-
+`git clone https://github.com/your-username/project-name.git`
+`cd project-name`
+```
 
