@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -154,5 +154,38 @@ SWAGGER_SETTINGS = {
             'in': 'header',
             'description': 'JWT Authorization header using the Bearer scheme. Example: "Bearer <token>"',
         }
+    },
+}
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,  # Turn off default verbose Django logs
+    'formatters': {
+        'standard': {
+            'format': '{levelname} {asctime} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'project.log'),
+            'formatter': 'standard',
+        },
+    },
+    'loggers': {
+        'accounts': {   # Only log from accounts app
+            'handlers': ['file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+        'tasks': {      # Only log from tasks app
+            'handlers': ['file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
     },
 }
