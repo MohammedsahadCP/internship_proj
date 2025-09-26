@@ -4,41 +4,112 @@ A full-stack Task Manager Application built with Django REST Framework (backend)
 It allows users to register, login, and perform CRUD (Create, Read, Update, Delete) operations on tasks with JWT authentication.
 
 ## Backend
-Python 3.11+
-Django 4+
-Django REST Framework
-MySQL
-djangorestframework-simplejwt (JWT Authentication)
-drf-yasg (Swagger API Documentation)
+Python 3.11+  
+Django 4+  
+Django REST Framework  
+MySQL  
+djangorestframework-simplejwt (JWT Authentication)  
+drf-yasg (Swagger API Documentation)  
 
 ## Frontend
-React.js 
-Axios
-React Router DOM
-CSS 
+React.js   
+Axios  
+React Router DOM  
+CSS   
 
 ## Features
-User Registration & Login
-JWT Authentication (access + refresh tokens)
-Role-based access (user vs admin)
-CRUD (Create, Read, Update, Delete) for tasks
-Swagger API documentation
-React frontend integration
+User Registration & Login  
+JWT Authentication (access + refresh tokens)  
+Role-based access (user vs admin)  
+CRUD (Create, Read, Update, Delete) for tasks  
+Swagger API documentation  
+React frontend integration  
 
 
 
 # Installation and Setup
 
-## clone repository
+## 1.clone repository
 ```bash 
 git clone https://github.com/MohammedsahadCP/internship_proj.git
 cd internship_proj
 ``` 
 
 
-## backend setup
+## 2.activate virtual environment
 ```bash
+# for windows
 python -m venv venv
-venv\Scripts\activate # for windows
+venv\Scripts\activate 
+```
+```bash
+# Mac/Linux
+python -m venv venv
 source venv/bin/activate   # Mac/Linux
 ```
+
+## 3.install requirements
+```bash
+pip install -r requirements.txt
+```
+
+## 4. Database Setup (MySQL)
+```bash
+#Login to MySQL
+mysql -u root -p;
+
+#Create database
+CREATE DATABASE your_db;
+
+#Create dedicated user
+CREATE USER 'your_user'@'localhost' IDENTIFIED BY 'your_password';
+GRANT ALL PRIVILEGES ON your_db.* TO 'your_user'@'localhost';
+FLUSH PRIVILEGES;
+
+#Verify
+SHOW DATABASES;
+
+```
+
+## 5.Environment Variables
+Create a .env file in backend_project/:
+```bash
+# Django secret key
+SECRET_KEY=your-secret-key-here #it will be in your settings.py
+
+# Debug mode
+DEBUG=True
+
+# MySQL database settings
+DB_NAME=your_db
+DB_USER=your_user
+DB_PASSWORD=your_password
+DB_HOST=localhost
+DB_PORT=3306
+
+```
+
+# 6. run backend
+```bash
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+```
+
+
+# 7.Frontend Setup (React)
+```bash
+cd /frontend
+npm start
+```
+
+
+
+
+
+
+
+
+
+
+
