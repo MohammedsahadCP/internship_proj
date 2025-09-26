@@ -37,13 +37,13 @@ cd internship_proj
 
 
 ## 2.activate virtual environment
+for windows:
 ```bash
-# for windows
 python -m venv venv
 venv\Scripts\activate 
 ```
+for Mac/Linux:
 ```bash
-# Mac/Linux
 python -m venv venv
 source venv/bin/activate   # Mac/Linux
 ```
@@ -54,28 +54,32 @@ pip install -r requirements.txt
 ```
 
 ## 4. Database Setup (MySQL)
+Login to MySQL:
 ```bash
-#Login to MySQL
 mysql -u root -p;
-
-#Create database
+```
+Create database:
+```bash
 CREATE DATABASE your_db;
-
-#Create dedicated user
+```
+Create dedicated user:
+```bash
 CREATE USER 'your_user'@'localhost' IDENTIFIED BY 'your_password';
 GRANT ALL PRIVILEGES ON your_db.* TO 'your_user'@'localhost';
 FLUSH PRIVILEGES;
+```
 
-#Verify
+Verify:
+```bash
 SHOW DATABASES;
 
 ```
 
 ## 5.Environment Variables
-Create a .env file in backend_project/:
+Create a .env file in backend_project/ and paste the below:
 ```bash
 # Django secret key
-SECRET_KEY=your-secret-key-here #it will be in your settings.py
+SECRET_KEY=your-secret-key-here #it will be in your settings.py paste here
 
 # Debug mode
 DEBUG=True
@@ -95,6 +99,7 @@ python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
 ```
+Open your browser at http://127.0.0.1:8000
 
 
 # 7.Frontend Setup (React)
@@ -103,7 +108,7 @@ cd /frontend
 npm start
 ```
 
-
+Frontend runs at: http://localhost:3000/
 
 
 
